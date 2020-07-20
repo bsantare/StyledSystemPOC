@@ -1,6 +1,6 @@
 import * as CSS from "csstype";
 import { ObjectOrArray, Theme } from "styled-system";
-import { defaultButtonVariants } from "./default/buttons";
+import { defaultButtonVariantsProps, buttonSizes } from "./default/buttons";
 import { Size, Color } from "./token";
 
 const colors: ObjectOrArray<CSS.ColorProperty> = {
@@ -77,14 +77,15 @@ const space: ObjectOrArray<CSS.MarginProperty<number | string>> = {
   64: "16rem",
 };
 
-const ExampleTheme: Theme = {
+const ExampleTheme: Theme & { buttonSizes: typeof buttonSizes } = {
   colors,
   fonts,
   fontSizes,
   fontWeights,
   space,
   sizes,
-  buttons: defaultButtonVariants,
+  buttons: defaultButtonVariantsProps,
+  buttonSizes: buttonSizes,
 };
 
 export default ExampleTheme;

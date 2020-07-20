@@ -1,6 +1,6 @@
-import { Color, Variant } from "../token";
+import { Color, Variant, Size } from "../token";
 
-export const defaultButtonVariants = {
+export const defaultButtonVariantsProps = {
   [Variant.filled]: {
     bg: Color.primary,
     color: Color.white,
@@ -26,5 +26,14 @@ export const defaultButtonVariants = {
       color: Color.ash,
       borderColor: Color.ash,
     },
+  },
+};
+
+export const buttonSizes = {
+  [Size.lg]: {
+    width: Size.lg,
+  },
+  [Size.xs]: {
+    width: Size.xs,
   },
 };

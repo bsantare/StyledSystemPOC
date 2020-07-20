@@ -9,11 +9,7 @@ export default {
 };
 
 export const FilledTextButton = () => (
-  <Button
-    disabled={boolean("Disabled", false)}
-    variant={Variant.filled}
-    size={Size.lg}
-  >
+  <Button disabled={boolean("Disabled", false)} variant={Variant.filled}>
     Filled text button
   </Button>
 );
