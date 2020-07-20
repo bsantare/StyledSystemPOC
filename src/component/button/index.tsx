@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { variant } from "styled-system";
 import { defaultButtonVariants } from "../../theme/default/buttons";
 import { Size } from "../../theme/token";

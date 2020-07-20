@@ -4,7 +4,7 @@ import * as themes from '../src/theme'
 import { withThemes } from '@react-theming/storybook-addon/dist/preview'
 import { withKnobs } from '@storybook/addon-knobs'
 import { VIEWPORT_BREAKPOINTS } from './viewport-breakpoints'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'emotion-theming'
 
 const themeObjArr = Object.keys(themes)
     .sort((a, b) => a === 'ExampleTheme' ? -1 : 1)
