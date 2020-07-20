@@ -1,0 +1,115 @@
+{
+  "name": "chakra",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "build-storybook": "build-storybook -s public",
+    "eject": "react-scripts eject",
+    "sort:packages": "npx sort-package-json",
+    "start": "react-scripts start",
+    "storybook": "start-storybook -p 9009 -s public",
+    "test": "react-scripts test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "@typescript-eslint",
+      "react",
+      "react-hooks"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".ts",
+            "tsx"
+          ]
+        }
+      ],
+      "react/jsx-closing-tag-location": 0,
+      "import/no-unresolved": "off",
+      "quotes": [
+        2,
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "space-before-function-paren": [
+        "error",
+        "always"
+      ],
+      "import/no-extraneous-dependencies": "off",
+      "import/prefer-default-export": "off",
+      "import/extensions": "off"
+    }
+  },
+  "dependencies": {
+    "@styled-system/css": "^5.1.5",
+    "@types/styled-components": "^5.1.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1",
+    "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "@react-theming/storybook-addon": "^1.0.2",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.19",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/theme-ui": "^0.3.5",
+    "@types/theme-ui__components": "^0.2.5",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "typescript": "~3.7.2"
+  }
+}
