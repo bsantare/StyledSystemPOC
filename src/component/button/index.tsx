@@ -1,26 +1,24 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
-import { variant } from "styled-system";
-import {
-  buttonSizes,
-  defaultButtonVariantsProps,
-} from "../../theme/default/buttons";
-import { Size, Variant } from "../../theme/token";
+import { variant, buttonStyle } from "styled-system";
+import { buttonSizes } from "../../theme/default/buttons";
+import { Variant, Size } from "../../theme/token";
 
 const buttonSize = variant({
   prop: "size",
   key: "buttonSizes",
 });
 
-type ButtonVariants = {
-  variant: keyof typeof defaultButtonVariantsProps; // variant is a required prop now
-  size?: keyof typeof buttonSizes;
-};
-
-const _Button = styled("button")<ButtonVariants>(buttonSize);
-
-_Button.defaultProps = {
+const defaultBtnProps = {
   variant: Variant.filled,
   size: Size.lg,
 };
+
+type DefaultBtnProps = Partial<typeof defaultBtnProps>;
+
+const _Button = styled("button")<DefaultBtnProps>({}, buttonSize, buttonStyle);
+
+_Button.defaultProps = defaultBtnProps;
 
 export const Button = _Button;
