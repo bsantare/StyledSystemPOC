@@ -1,18 +1,20 @@
 import styled from '@emotion/styled';
 import { variant, buttonStyle, borderRadius } from 'styled-system';
 import { ButtonVariant, Size } from '../../theme/token';
-import { buttonSizes, buttonVariants } from '../../theme/default/buttons';
 
 const buttonSize = variant({
   prop: 'size',
   key: 'buttonSizes',
-  variants: buttonSizes
+  variants: {
+    [Size.xs]: {}
+  }
 });
 
 const btnVariants = variant({
-  prop: 'variant',
   key: 'buttons',
-  variants: buttonVariants,
+  variants: {
+    [ButtonVariant.outlined]: {}
+  },
 });
 
 const defaultBtnProps = {
