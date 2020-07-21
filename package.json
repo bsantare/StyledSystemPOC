@@ -34,6 +34,28 @@
       "last 1 safari version"
     ]
   },
+  "eslintConfig": {
+    "plugins": ["@typescript-eslint", "react", "react-hooks"],
+    "extends": ["airbnb", "plugin:@typescript-eslint/recommended"],
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "comma-dangle": "off",
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [".js", ".ts", "tsx"]
+        }
+      ],
+      "react/jsx-closing-tag-location": 0,
+      "import/no-unresolved": "off",
+      "quotes": [2, "single"],
+      "semi": ["error", "always"],
+      "space-before-function-paren": ["error", "always"],
+      "import/no-extraneous-dependencies": "off",
+      "import/prefer-default-export": "off",
+      "import/extensions": "off"
+    }
+  },
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
