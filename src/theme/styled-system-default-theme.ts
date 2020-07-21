@@ -1,4 +1,4 @@
-import { Theme } from "styled-system";
+import { Theme } from 'styled-system';
 
 const StyledSystemDefaultTheme: Theme = {};
 
