@@ -9,7 +9,8 @@
     "sort:packages": "npx sort-package-json",
     "start": "react-scripts start",
     "storybook": "start-storybook -p 9009 -s public",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "format": "eslint . --fix --ext js,jsx,ts,tsx"
   },
   "husky": {
     "hooks": {
@@ -18,7 +19,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
+      "eslint . --fix --ext js,jsx,ts,tsx"
     ]
   },
   "browserslist": {
@@ -34,41 +35,22 @@
     ]
   },
   "eslintConfig": {
-    "plugins": [
-      "@typescript-eslint",
-      "react",
-      "react-hooks"
-    ],
-    "extends": [
-      "airbnb",
-      "plugin:@typescript-eslint/recommended"
-    ],
+    "plugins": ["@typescript-eslint", "react", "react-hooks"],
+    "extends": ["airbnb", "plugin:@typescript-eslint/recommended"],
     "rules": {
       "@typescript-eslint/explicit-function-return-type": "off",
+      "comma-dangle": "off",
       "react/jsx-filename-extension": [
         1,
         {
-          "extensions": [
-            ".js",
-            ".ts",
-            "tsx"
-          ]
+          "extensions": [".js", ".ts", "tsx"]
         }
       ],
       "react/jsx-closing-tag-location": 0,
       "import/no-unresolved": "off",
-      "quotes": [
-        2,
-        "single"
-      ],
-      "semi": [
-        "error",
-        "always"
-      ],
-      "space-before-function-paren": [
-        "error",
-        "always"
-      ],
+      "quotes": [2, "single"],
+      "semi": ["error", "always"],
+      "space-before-function-paren": ["error", "always"],
       "import/no-extraneous-dependencies": "off",
       "import/prefer-default-export": "off",
       "import/extensions": "off"

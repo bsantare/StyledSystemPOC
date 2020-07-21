@@ -1,22 +1,21 @@
-import styled from "@emotion/styled";
-import { variant } from "styled-system";
-import { defaultButtonVariants } from "../../theme/default/buttons";
-import { Size } from "../../theme/token";
+import styled from '@emotion/styled';
+import { variant, buttonStyle } from 'styled-system';
+import { Variant, Size } from '../../theme/token';
 
-export const Button = styled("button")(
-  variant({
-    scale: "buttons",
-    variants: defaultButtonVariants,
-  }),
-  variant({
-    prop: "size",
-    variants: {
-      [Size.lg]: {
-        width: Size.lg,
-      },
-      [Size.xs]: {
-        width: Size.xs,
-      },
-    },
-  })
-);
+const buttonSize = variant({
+  prop: 'size',
+  key: 'buttonSizes',
+});
+
+const defaultBtnProps = {
+  variant: Variant.filled,
+  size: Size.lg,
+};
+
+type DefaultBtnProps = Partial<typeof defaultBtnProps>;
+
+const btn = styled('button')<DefaultBtnProps>({}, buttonSize, buttonStyle);
+
+btn.defaultProps = defaultBtnProps;
+
+export const Button = btn;
