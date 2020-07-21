@@ -1,7 +1,7 @@
-import { Color, Variant, Size } from '../token';
+import { Color, ButtonVariant, Size } from '../token';
 
-export const defaultButtonVariantsProps = {
-  [Variant.filled]: {
+export const buttonVariants = {
+  [ButtonVariant.filled]: {
     bg: Color.primary,
     color: Color.white,
     '&:hover': {
@@ -12,7 +12,7 @@ export const defaultButtonVariantsProps = {
       bg: Color.ghost,
     },
   },
-  [Variant.outlined]: {
+  [ButtonVariant.outlined]: {
     border: '2px',
     color: Color.primary,
     backgroundColor: Color.white,

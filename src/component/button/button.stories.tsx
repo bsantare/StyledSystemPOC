@@ -1,6 +1,6 @@
 import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
-import { Size, Variant } from '../../theme/token';
+import { Size, ButtonVariant } from '../../theme/token';
 import { Button } from './index';
 
 export default {
@@ -9,7 +9,7 @@ export default {
 };
 
 export const FilledTextButton = () => (
-  <Button disabled={boolean('Disabled', false)} variant={Variant.filled}>
+  <Button disabled={boolean('Disabled', false)} variant={ButtonVariant.filled}>
     Filled text button
   </Button>
 );
@@ -17,7 +17,7 @@ export const FilledTextButton = () => (
 export const OutlineTextButton = () => (
   <Button
     disabled={boolean('Disabled', false)}
-    variant={Variant.outlined}
+    variant={ButtonVariant.outlined}
     size={Size.xs}
   >
     Outline text button

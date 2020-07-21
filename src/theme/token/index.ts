@@ -1,4 +1,4 @@
-export enum Variant {
+export enum ButtonVariant {
   filled = 'filled',
   outlined = 'outlined',
 }
