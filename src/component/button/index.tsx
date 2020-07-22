@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
-import { variant, buttonStyle, borderRadius } from 'styled-system';
-import { ButtonVariant, Size } from '../../theme/token';
+import {
+  borderRadius, buttonStyle, textStyle, variant
+} from 'styled-system';
+import { ButtonVariant, Size } from '../../theme/shared';
 
 const buttonSize = variant({
   prop: 'size',
@@ -21,6 +23,7 @@ const defaultBtnProps = {
   borderRadius: 2,
   variant: ButtonVariant.filled,
   size: Size.lg,
+  textStyle: 'display8.barlow'
 };
 
 type DefaultBtnProps = Partial<typeof defaultBtnProps>;
@@ -32,6 +35,7 @@ const btn = styled('button')<DefaultBtnProps>(
   btnVariants,
   buttonStyle,
   borderRadius,
+  textStyle
 );
 
 btn.defaultProps = defaultBtnProps;

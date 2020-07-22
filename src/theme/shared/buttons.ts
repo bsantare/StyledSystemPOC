@@ -1,4 +1,4 @@
-import { Color, ButtonVariant, Size } from '../token';
+import { Color, ButtonVariant, Size } from './token';
 
 export const buttonVariants = {
   [ButtonVariant.filled]: {
@@ -37,3 +37,4 @@ export const buttonSizes = {
     width: Size.xs,
   },
 };
+export type ButtonSizes = typeof buttonSizes;

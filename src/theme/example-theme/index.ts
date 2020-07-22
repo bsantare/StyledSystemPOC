@@ -1,8 +1,14 @@
 import * as CSS from 'csstype';
-import { ObjectOrArray, Theme } from 'styled-system';
-import { buttonSizes, buttonVariants } from './default/buttons';
-import { radii, space } from './default/spacing';
-import { Size, Color } from './token';
+import { ObjectOrArray } from 'styled-system';
+import {
+  Size, Color, buttonSizes, buttonVariants, radii, space,
+  Theme
+} from '../shared';
+
+import { globalStyles } from './global-styles';
+import {
+  fonts, fontSizes, fontWeights, textStyles
+} from './text-styles';
 
 const colors: ObjectOrArray<CSS.ColorProperty> = {
   [Color.text]: '#000',
@@ -20,33 +26,6 @@ const colors: ObjectOrArray<CSS.ColorProperty> = {
   [Color.ghost]: '#f2f2f2',
 };
 
-const fonts: ObjectOrArray<CSS.FontFamilyProperty> = {
-  barlow: 'Barlow',
-  quicksand: 'Quicksand',
-};
-
-const fontSizes: ObjectOrArray<CSS.FontSizeProperty<number>> = {
-  sz62: '62px',
-  sz60: '60px',
-  sz50: '50px',
-  sz40: '40px',
-  sz38: '38px',
-  sz32: '32px',
-  sz30: '30px',
-  sz26: '26px',
-  sz24: '24px',
-  sz22: '22px',
-  sz18: '18px',
-  sz16: '16px',
-  sz12: '12px',
-};
-
-const fontWeights: ObjectOrArray<CSS.FontWeightProperty> = {
-  regular: 400,
-  medium: 500,
-  bold: 700,
-};
-
 const sizes: ObjectOrArray<CSS.HeightProperty<{}> | CSS.WidthProperty<{}>> = {
   [Size.full]: '100%',
   [Size.xs]: '20rem',
@@ -56,7 +35,7 @@ const sizes: ObjectOrArray<CSS.HeightProperty<{}> | CSS.WidthProperty<{}>> = {
   [Size.xl]: '36rem',
 };
 
-const ExampleTheme: Theme & { buttonSizes: typeof buttonSizes } = {
+const Index: Theme = {
   colors,
   fonts,
   fontSizes,
@@ -66,6 +45,8 @@ const ExampleTheme: Theme & { buttonSizes: typeof buttonSizes } = {
   radii,
   buttons: buttonVariants,
   buttonSizes,
+  textStyles,
+  globalStyles
 };
 
-export default ExampleTheme;
+export default Index;
