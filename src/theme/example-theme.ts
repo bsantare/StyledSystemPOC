@@ -1,29 +1,13 @@
 import * as CSS from 'csstype';
-import { ObjectOrArray, Theme } from 'styled-system';
+import { ObjectOrArray } from 'styled-system';
 import { buttonSizes, buttonVariants } from './default/buttons';
 import { radii, space } from './default/spacing';
-import { Size, Color } from './token';
-
-const colors: ObjectOrArray<CSS.ColorProperty> = {
-  [Color.text]: '#000',
-  [Color.background]: '#fff',
-  [Color.primary]: '#1cA69c',
-  [Color.secondary]: '#2e5763',
-  [Color.accent]: '#ffffff',
-  [Color.highlight]: '#f8f8f8',
-  [Color.muted]: '#f6f6f6',
-  [Color.slate]: '#404040',
-  [Color.grey]: '#757575',
-  [Color.ash]: '#e0e0e0',
-  [Color.alabaster]: '#f8f8f8',
-  [Color.white]: '#ffffff',
-  [Color.ghost]: '#f2f2f2',
-};
+import { Size, colors } from './token';
 
 const fonts: ObjectOrArray<CSS.FontFamilyProperty> = {
   barlow: 'Barlow',
   quicksand: 'Quicksand',
-};
+} as const;
 
 const fontSizes: ObjectOrArray<CSS.FontSizeProperty<number>> = {
   sz62: '62px',
@@ -39,24 +23,27 @@ const fontSizes: ObjectOrArray<CSS.FontSizeProperty<number>> = {
   sz18: '18px',
   sz16: '16px',
   sz12: '12px',
-};
+} as const;
 
 const fontWeights: ObjectOrArray<CSS.FontWeightProperty> = {
   regular: 400,
   medium: 500,
   bold: 700,
-};
+} as const;
 
-const sizes: ObjectOrArray<CSS.HeightProperty<{}> | CSS.WidthProperty<{}>> = {
-  [Size.full]: '100%',
-  [Size.xs]: '20rem',
-  [Size.sm]: '24rem',
-  [Size.md]: '28rem',
-  [Size.lg]: '32rem',
-  [Size.xl]: '36rem',
-};
+const sizes: ObjectOrArray<
+  CSS.HeightProperty<{}> | CSS.WidthProperty<{}>,
+  Size
+> = {
+  full: '100%',
+  xs: '20rem',
+  sm: '24rem',
+  md: '28rem',
+  lg: '32rem',
+  xl: '36rem',
+} as const;
 
-const ExampleTheme: Theme & { buttonSizes: typeof buttonSizes } = {
+const ExampleTheme = {
   colors,
   fonts,
   fontSizes,
