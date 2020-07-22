@@ -3,19 +3,22 @@ import {
   borderRadius, buttonStyle, textStyle, variant
 } from 'styled-system';
 import { ButtonVariant, Size } from '../../theme/shared';
+import { variant, buttonStyle, borderRadius } from 'styled-system';
+import { ButtonHTMLAttributes } from 'react';
+import { size, buttonVariant, ButtonVariant, Size } from '../../theme/token';
 
 const buttonSize = variant({
   prop: 'size',
-  key: 'buttonSizes',
+  scale: 'buttonSizes',
   variants: {
-    [Size.xs]: {}
-  }
+    [size.xs]: {},
+  },
 });
 
 const btnVariants = variant({
-  key: 'buttons',
+  scale: 'buttons',
   variants: {
-    [ButtonVariant.outlined]: {}
+    primary: {},
   },
 });
 
@@ -24,16 +27,21 @@ const defaultBtnProps = {
   variant: ButtonVariant.filled,
   size: Size.lg,
   textStyle: 'display8.barlow'
+  variant: buttonVariant.filled,
+  size: size.lg,
 };
 
-type DefaultBtnProps = Partial<typeof defaultBtnProps>;
+type DefaultBtnProps = {
+  variant?: ButtonVariant;
+  size?: Size;
+} & ButtonHTMLAttributes<unknown>;
 
 const btn = styled('button')<DefaultBtnProps>(
-  {
-  },
+  {},
   buttonSize,
   btnVariants,
   buttonStyle,
+  borderRadius
   borderRadius,
   textStyle
 );
