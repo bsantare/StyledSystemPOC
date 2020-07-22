@@ -1,5 +1,5 @@
 import { CSSObject } from '@emotion/core';
-import { colors, ButtonVariant, Size } from '../token';
+import { color, ButtonVariant, Size } from '../token';
 
 type ButtonVariantProps = CSSObject;
 type ButtonVariants = Record<ButtonVariant, ButtonVariantProps>;
@@ -7,44 +7,44 @@ type ButtonSizes = Record<Size, CSSObject>;
 
 export const buttonVariants: ButtonVariants = {
   filled: {
-    bg: colors.primary,
-    color: colors.white,
+    bg: color.primary,
+    color: color.white,
     ':hover': {
-      bg: colors.secondary,
+      bg: color.secondary,
     },
     ':disabled': {
-      color: colors.ash,
-      bg: colors.ghost,
+      color: color.ash,
+      bg: color.ghost,
     },
   },
   outlined: {
     border: '2px',
-    color: colors.primary,
-    backgroundColor: colors.white,
+    color: color.primary,
+    backgroundColor: color.white,
     borderStyle: 'solid',
-    borderColor: colors.primary,
+    borderColor: color.primary,
     ':hover': {
-      color: colors.secondary,
-      borderColor: colors.secondary,
+      color: color.secondary,
+      borderColor: color.secondary,
     },
     ':disabled': {
-      color: colors.ash,
-      borderColor: colors.ash,
+      color: color.ash,
+      borderColor: color.ash,
     },
   },
   secondary: {
     border: '2px',
-    color: colors.slate,
-    backgroundColor: colors.white,
+    color: color.slate,
+    backgroundColor: color.white,
     borderStyle: 'solid',
-    borderColor: colors.primary,
+    borderColor: color.primary,
     ':hover': {
-      color: colors.secondary,
-      borderColor: colors.secondary,
+      color: color.secondary,
+      borderColor: color.secondary,
     },
     ':disabled': {
-      color: colors.ash,
-      borderColor: colors.ash,
+      color: color.ash,
+      borderColor: color.ash,
     },
   },
 };

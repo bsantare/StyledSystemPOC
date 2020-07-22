@@ -19,7 +19,7 @@ export const size = {
 
 export type Size = AsUnion<typeof size>;
 
-export const colors = {
+export const color = {
   text: 'text',
   background: 'background',
   primary: 'primary',
@@ -35,4 +35,4 @@ export const colors = {
   ghost: '#f2f2f2',
 } as const;
 
-export type Color = AsUnion<typeof colors>;
+export type Color = AsUnion<typeof color>;

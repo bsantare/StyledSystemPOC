@@ -2,7 +2,23 @@ import * as CSS from 'csstype';
 import { ObjectOrArray } from 'styled-system';
 import { buttonSizes, buttonVariants } from './default/buttons';
 import { radii, space } from './default/spacing';
-import { Size, colors } from './token';
+import { Size, Color, color } from './token';
+
+const colors: ObjectOrArray<CSS.ColorProperty> = {
+  [color.text]: '#000',
+  [color.background]: '#fff',
+  [color.primary]: '#1cA69c',
+  [color.secondary]: '#2e5763',
+  [color.accent]: '#ffffff',
+  [color.highlight]: '#f8f8f8',
+  [color.muted]: '#f6f6f6',
+  [color.slate]: '#404040',
+  [color.grey]: '#757575',
+  [color.ash]: '#e0e0e0',
+  [color.alabaster]: '#f8f8f8',
+  [color.white]: '#ffffff',
+  [color.ghost]: '#f2f2f2',
+};
 
 const fonts: ObjectOrArray<CSS.FontFamilyProperty> = {
   barlow: 'Barlow',
