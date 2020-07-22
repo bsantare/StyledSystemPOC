@@ -1,12 +1,10 @@
 import * as CSS from 'csstype';
 import { ObjectOrArray } from 'styled-system';
-import { buttonSizes, buttonVariants } from './default/buttons';
-import { radii, space } from './default/spacing';
-import { Size, Color, color } from './token';
 import { globalStyles } from './global-styles';
+import { textStyles } from './text-styles';
 import {
-  fonts, fontSizes, fontWeights, textStyles
-} from './text-styles';
+  color, Size, Theme, radii, buttonSizes, buttonVariants, space
+} from '../shared';
 
 const colors: ObjectOrArray<CSS.ColorProperty> = {
   [color.text]: '#000',
@@ -21,12 +19,12 @@ const colors: ObjectOrArray<CSS.ColorProperty> = {
   [color.ash]: '#e0e0e0',
   [color.alabaster]: '#f8f8f8',
   [color.white]: '#ffffff',
-  [color.ghost]: '#f2f2f2',
+  [color.ghost]: '#f2f2f2'
 };
 
 const fonts: ObjectOrArray<CSS.FontFamilyProperty> = {
   barlow: 'Barlow',
-  quicksand: 'Quicksand',
+  quicksand: 'Quicksand'
 } as const;
 
 const fontSizes: ObjectOrArray<CSS.FontSizeProperty<number>> = {
@@ -42,26 +40,24 @@ const fontSizes: ObjectOrArray<CSS.FontSizeProperty<number>> = {
   sz22: '22px',
   sz18: '18px',
   sz16: '16px',
-  sz12: '12px',
+  sz12: '12px'
 } as const;
 
 const fontWeights: ObjectOrArray<CSS.FontWeightProperty> = {
   regular: 400,
   medium: 500,
-  bold: 700,
+  bold: 700
 } as const;
 
-const sizes: ObjectOrArray<
-  CSS.HeightProperty<{}> | CSS.WidthProperty<{}>,
-  Size
-> = {
-  full: '100%',
-  xs: '20rem',
-  sm: '24rem',
-  md: '28rem',
-  lg: '32rem',
-  xl: '36rem',
-} as const;
+const sizes: ObjectOrArray<CSS.HeightProperty<{}> | CSS.WidthProperty<{}>,
+  Size> = {
+    full: '100%',
+    xs: '20rem',
+    sm: '24rem',
+    md: '28rem',
+    lg: '32rem',
+    xl: '36rem'
+  } as const;
 
 const Index: Theme = {
   colors,
