@@ -1,37 +1,46 @@
+import {
+  variant, buttonStyle, borderRadius, textStyle, TextStyleProps
+} from 'styled-system';
+import { ButtonHTMLAttributes } from 'react';
 import styled from '@emotion/styled';
-import { variant, buttonStyle, borderRadius } from 'styled-system';
-import { ButtonVariant, Size } from '../../theme/token';
+import {
+  size, buttonVariant, ButtonVariant, Size
+} from '../../theme/shared';
 
 const buttonSize = variant({
   prop: 'size',
-  key: 'buttonSizes',
+  scale: 'buttonSizes',
   variants: {
-    [Size.xs]: {}
-  }
+    [size.xs]: {},
+  },
 });
 
 const btnVariants = variant({
-  key: 'buttons',
+  scale: 'buttons',
   variants: {
-    [ButtonVariant.outlined]: {}
+    primary: {},
   },
 });
 
 const defaultBtnProps = {
   borderRadius: 2,
-  variant: ButtonVariant.filled,
-  size: Size.lg,
+  variant: buttonVariant.filled,
+  size: size.lg,
+  textStyle: 'display8.barlow',
 };
 
-type DefaultBtnProps = Partial<typeof defaultBtnProps>;
+type DefaultBtnProps = {
+  variant?: ButtonVariant;
+  size?: Size;
+} & ButtonHTMLAttributes<unknown> & TextStyleProps;
 
 const btn = styled('button')<DefaultBtnProps>(
-  {
-  },
+  {},
   buttonSize,
   btnVariants,
   buttonStyle,
   borderRadius,
+  textStyle
 );
 
 btn.defaultProps = defaultBtnProps;

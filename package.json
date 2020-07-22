@@ -67,10 +67,6 @@
         "error",
         "always"
       ],
-      "space-before-function-paren": [
-        "error",
-        "always"
-      ],
       "import/no-extraneous-dependencies": "off",
       "import/prefer-default-export": "off",
       "import/extensions": "off"
@@ -113,6 +109,6 @@
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "react-docgen-typescript-loader": "^3.7.2",
-    "typescript": "~3.7.2"
+    "typescript": "^3.8.3"
   }
 }

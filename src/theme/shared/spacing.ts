@@ -29,3 +29,14 @@ export const space: ObjectOrArray<CSS.MarginProperty<number | string>> = {
   56: '14rem',
   64: '16rem',
 };
+
+export const lineHeight: ObjectOrArray<CSS.LineHeightProperty<TLengthStyledSystem>> = {
+  76: '76px',
+  62: '62px',
+  50: '50px',
+  40: '40px',
+  32: '32px',
+  26: '26px',
+  24: '24px',
+  20: '20px'
+};
