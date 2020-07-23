@@ -1,30 +1,36 @@
 import { AsUnion } from '../util.types';
 
-export enum Font {
-  font1 = 'font1',
-  font2 = 'font2',
-}
+export const font = {
+  font1: 'font1',
+  font2: 'font2',
+} as const;
 
-export enum FontWeight {
-  regular = 'regular',
-  medium = 'medium',
-  bold = 'bold',
-}
+export type Font = AsUnion<typeof font>;
 
-export enum TextScale {
-  display1 = 'display1',
-  display2 = 'display2',
-  display3 = 'display3',
-  display4 = 'display4',
-  display5 = 'display5',
-  display6 = 'display6',
-  display7 = 'display7',
-  display8 = 'display8',
-  body1 = 'body1',
-  body2 = 'body2',
-  label = 'label',
-  caption = 'caption',
-}
+export const fontWeight = {
+  regular: 'regular',
+  medium: 'medium',
+  bold: 'bold',
+} as const;
+
+export type FontWeight = AsUnion<typeof fontWeight>;
+
+export const textScale = {
+  display1: 'display1',
+  display2: 'display2',
+  display3: 'display3',
+  display4: 'display4',
+  display5: 'display5',
+  display6: 'display6',
+  display7: 'display7',
+  display8: 'display8',
+  body1: 'body1',
+  body2: 'body2',
+  label: 'label',
+  caption: 'caption',
+} as const;
+
+export type TextScale = AsUnion<typeof textScale>;
 
 export const buttonVariant = {
   filled: 'filled',

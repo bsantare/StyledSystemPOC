@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import { ExampleTheme } from './theme';
 
-function App () {
+function App() {
   return (
     <>
       <Global styles={ExampleTheme.globalStyles} />
