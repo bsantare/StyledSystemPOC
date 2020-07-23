@@ -1,5 +1,5 @@
 import {
-  ButtonSizes, ButtonVariants, color, font, textScale
+  ButtonSizes, ButtonVariants, color
 } from '../shared';
 import { textStyles } from './text-styles';
 
@@ -47,7 +47,7 @@ export const buttonVariants: ButtonVariants = {
 
 export const buttonSizes: ButtonSizes = {
   sm: {
-    textStyle: `${textScale.label}.${font.font1}`,
+    ...textStyles.label.font1,
     padding: '2px 4px'
   },
   md: {

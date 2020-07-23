@@ -4,3 +4,4 @@ dist/
 *.test.*
 serviceWorker.ts
 setupTests.ts
+lock-node-version.js
