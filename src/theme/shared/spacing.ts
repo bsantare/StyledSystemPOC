@@ -6,7 +6,7 @@ export const radii: ObjectOrArray<CSS.BorderRadiusProperty<TLengthStyledSystem>>
   2: 2,
   4: 4,
   8: 8
-};
+} as const;
 
 export const space: ObjectOrArray<CSS.MarginProperty<number | string>> = {
   px: '1px',
@@ -28,9 +28,9 @@ export const space: ObjectOrArray<CSS.MarginProperty<number | string>> = {
   48: '12rem',
   56: '14rem',
   64: '16rem',
-};
+} as const;
 
-export const lineHeight: ObjectOrArray<CSS.LineHeightProperty<TLengthStyledSystem>> = {
+export const lineHeight: Record<string, CSS.LineHeightProperty<TLengthStyledSystem>> = {
   76: '76px',
   62: '62px',
   50: '50px',
@@ -39,4 +39,4 @@ export const lineHeight: ObjectOrArray<CSS.LineHeightProperty<TLengthStyledSyste
   26: '26px',
   24: '24px',
   20: '20px'
-};
+} as const;

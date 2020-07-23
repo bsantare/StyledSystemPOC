@@ -9,33 +9,44 @@ export default {
 };
 
 export const FilledTextButton = () => (
-  <>
+  <div style={{
+    display: 'flex', flexDirection: 'column'
+  }}
+  >
     <Button
       disabled={boolean('Disabled', false)}
       variant={buttonVariant.filled}
-      textStyle="display8.font1"
-      style={{ marginRight: 10 }}
+      size={size.sm}
+      style={{ marginBottom: 10 }}
     >
-      Filled text button Barlow display8
+      Small filled button
     </Button>
 
     <Button
       disabled={boolean('Disabled', false)}
       variant={buttonVariant.filled}
-      textStyle="display7.font2"
-      style={{ marginRight: 10 }}
+      size={size.md}
+      style={{ marginBottom: 10 }}
     >
-      Filled text button Quicksand display7
+      Medium filled button
     </Button>
-  </>
+
+    <Button
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.filled}
+      size={size.lg}
+      style={{ marginBottom: 10 }}
+    >
+      Large filled button
+    </Button>
+  </div>
 );
 
 export const OutlineTextButton = () => (
   <Button
     disabled={boolean('Disabled', false)}
     variant={buttonVariant.outlined}
-    size={size.xs}
-    textStyle="display8.font2"
+    size={size.lg}
   >
     Outline text button
   </Button>

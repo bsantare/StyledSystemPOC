@@ -4,7 +4,7 @@ import { Theme as SSTheme } from 'styled-system';
 import { Font, TextScale } from './token';
 import { ButtonSizes } from './buttons';
 
-export type TextStyles = Record<keyof TextScale, Record<keyof Font, CSS.StandardProperties>>
+export type TextStyles = Record<TextScale, Record<Partial<Font>, CSS.StandardProperties>>
 
 export type Theme =
     SSTheme
