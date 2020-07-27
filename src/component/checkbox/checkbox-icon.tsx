@@ -2,8 +2,7 @@
 import { jsx, css } from '@emotion/core';
 
 import styled from '@emotion/styled';
-import { ReactComponent as Check } from '../../icons/check.svg';
-import { SVG } from '../svg';
+import { ReactComponent as CheckSVG } from '../../icons/check.svg';
 import { color } from '../../theme/shared';
 
 const uncheckedCss = css`
@@ -23,24 +22,17 @@ const checkedCss = css`
   background-color: ${color.turquoise};
 `;
 
-const Icon = styled(SVG)`
-  fill: none;
-  stroke: white;
-  stroke-width: 2px;
-`;
-const IconCheck = styled(Check)`
-  fill: none;
+const CheckIcon = styled(CheckSVG)`
+  fill: currentColor;
   stroke: white;
   stroke-width: 2px;
   url
 `;
 
 export const CheckBoxChecked = (props: any) => (
-  <IconCheck {...props} css={checkedCss} />
+  <CheckIcon {...props} css={checkedCss} />
 );
 
 export const CheckboxUnchecked = (props: any) => (
-  <Icon {...props} css={uncheckedCss}>
-    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
-  </Icon>
+  <div {...props} css={uncheckedCss} />
 );
