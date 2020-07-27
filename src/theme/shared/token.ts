@@ -56,7 +56,7 @@ export const color = {
   background: 'background',
   primary: 'primary',
   secondary: 'secondary',
-  medium: '#8c8c8c',
+  turquoiseDark: '#2e5763',
   turquoise: '#1ca69c',
   accent: 'accent',
   highlight: 'highlight',

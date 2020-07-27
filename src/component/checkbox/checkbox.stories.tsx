@@ -8,7 +8,17 @@ export default {
 };
 
 export const Checkbox = () => (
-  <CB>hey you</CB>
+  <>
+    <CB />
+    <span>Checkbox</span>
+  </>
+);
+
+export const CheckboxDisabled = () => (
+  <>
+    <CB disabled />
+    <span>Checkbox disabled</span>
+  </>
 );
 
 export const CheckboxCheckedIcon = () => (

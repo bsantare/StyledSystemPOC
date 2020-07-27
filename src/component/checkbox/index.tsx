@@ -1,29 +1,30 @@
 import * as React from 'react';
-import { forwardRef } from 'react';
 import styled from '@emotion/styled';
-import { CheckboxProps } from '../../theme/shared/checkboxes';
 import { useToggle } from '../../hooks/useToggle';
 import { CheckBoxChecked, CheckboxUnchecked } from './checkbox-icon';
+import { CheckboxProps } from '../../theme/shared/checkboxes';
+import { color } from '../../theme/shared';
 
 const StyledControl = styled.div({
-  baseStyle: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    verticalAlign: 'top',
-    userSelect: 'none',
-    flexShrink: 0
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  verticalAlign: 'top',
+  userSelect: 'none',
+  flexShrink: 0,
+  '&:disabled': {
+    opacity: 0.35,
+    borderRadius: '1px',
+    backgroundColor: color.grey
   }
 });
 
 const StyledContainer = styled.label({
-  baseStyle: {
-    cursor: 'pointer',
-    display: 'inline-flex',
-    alignItems: 'center',
-    verticalAlign: 'top',
-    position: 'relative'
-  }
+  cursor: 'pointer',
+  display: 'inline-flex',
+  alignItems: 'center',
+  verticalAlign: 'top',
+  position: 'relative'
 });
 
 // Hide checkbox visually but remain accessible to screen readers.
@@ -41,17 +42,15 @@ const HiddenInput = styled.input`
   width: 1px;
 `;
 
-export const Checkbox = forwardRef<CheckboxProps>((
-  props,
-  ref
-) => {
+export const Checkbox = (props: CheckboxProps) => {
   const [on, toggle] = useToggle(true);
   return (
     <StyledContainer>
-      <HiddenInput onClick={toggle} />
+      {/* eslint-disable-next-line react/destructuring-assignment */}
+      <HiddenInput onClick={toggle} disabled={props.disabled} />
       <StyledControl>
-        {on ? <CheckBoxChecked /> : <CheckboxUnchecked />}
+        {on ? <CheckBoxChecked {...props} /> : <CheckboxUnchecked {...props} />}
       </StyledControl>
     </StyledContainer>
   );
-});
+};
