@@ -2,6 +2,7 @@ import * as CSS from 'csstype';
 import { ObjectOrArray } from 'styled-system';
 import { buttonSizes, buttonVariants } from './button-styles';
 import { globalStyles } from './global-styles';
+import { iconInfo } from './icon-styles';
 import {
   fonts, fontSizes, fontWeights, textStyles
 } from './text-styles';
@@ -46,6 +47,7 @@ const Index: Theme = {
   textStyles,
   buttons: buttonVariants,
   buttonSizes,
+  iconInfo,
   globalStyles
 };
 
