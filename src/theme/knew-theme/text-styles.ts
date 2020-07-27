@@ -3,7 +3,6 @@ import { fontSizes, fontWeights } from '../example-theme/text-styles';
 import {
   Font,
   font,
-  FontWeight,
   fontWeight,
   lineHeight,
   textScale,

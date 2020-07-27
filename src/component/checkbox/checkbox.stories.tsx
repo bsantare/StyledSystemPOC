@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { boolean } from '@storybook/addon-knobs';
 import { Checkbox as CB } from './index';
 
 export default {
@@ -8,14 +9,7 @@ export default {
 
 export const Checkbox = () => (
   <>
-    <CB />
+    <CB disabled={boolean('Disabled', false)} />
     <span>Checkbox</span>
-  </>
-);
-
-export const CheckboxDisabled = () => (
-  <>
-    <CB disabled />
-    <span>Checkbox disabled</span>
   </>
 );

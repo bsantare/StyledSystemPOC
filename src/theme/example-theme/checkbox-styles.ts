@@ -11,8 +11,8 @@ const base = {
     borderColor: color.secondary
   },
   ':disabled': {
-    color: color.grey,
-    borderColor: color.grey
+    color: color.ash,
+    bg: color.ghost
   },
   width: 24,
   height: 24

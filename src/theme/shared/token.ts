@@ -66,7 +66,6 @@ export const color = {
   ash: 'ash',
   alabaster: 'alabaster',
   white: 'white',
-  medium: 'medium',
   ghost: 'ghost',
 } as const;
 
