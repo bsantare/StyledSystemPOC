@@ -1,9 +1,7 @@
-import StyledSystemDefaultTheme from './styled-system-default-theme';
 import ExampleTheme from './example-theme';
-import KnewStyle from './knew-style';
+import KnewTheme from './knew-theme';
 
 export {
-  StyledSystemDefaultTheme,
   ExampleTheme,
-  KnewStyle
+  KnewTheme
 };

@@ -56,15 +56,15 @@ export const color = {
   background: 'background',
   primary: 'primary',
   secondary: 'secondary',
-  accent: '#ffffff',
-  highlight: '#f8f8f8',
-  muted: '#f6f6f6',
-  slate: '#404040',
-  grey: '#757575',
-  ash: '#e0e0e0',
-  alabaster: '#f8f8f8',
-  white: '#ffffff',
-  ghost: '#f2f2f2',
+  accent: 'accent',
+  highlight: 'highlight',
+  muted: 'muted',
+  slate: 'slate',
+  grey: 'grey',
+  ash: 'ash',
+  alabaster: 'alabaster',
+  white: 'white',
+  ghost: 'ghost',
 } as const;
 
 export type Color = AsUnion<typeof color>;
@@ -122,4 +122,4 @@ export const icon = {
   search: 'search',
 };
 
-export type IconType = AsUnion<typeof icon>;
+export type IconType = AsUnion<typeof icon | undefined>;

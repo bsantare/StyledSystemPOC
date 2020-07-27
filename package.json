@@ -143,7 +143,6 @@
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "react-docgen-typescript-loader": "^3.7.2",
-    "svg-sprite-generator": "^0.0.7",
     "typescript": "^3.9.2"
   },
   "engines": {
