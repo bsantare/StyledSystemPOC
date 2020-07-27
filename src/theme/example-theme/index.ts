@@ -9,6 +9,7 @@ import {
 import {
   color, Size, Theme, radii, space
 } from '../shared';
+import { checkboxVariants } from './checkbox-styles';
 
 const colors: ObjectOrArray<CSS.ColorProperty> = {
   [color.text]: '#000',
@@ -47,6 +48,7 @@ const Index: Theme = {
   textStyles,
   buttons: buttonVariants,
   buttonSizes,
+  checkboxes: checkboxVariants,
   iconInfo,
   globalStyles
 };

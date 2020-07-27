@@ -1,72 +1,57 @@
-import * as React from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import {
   variant as ssVariant, borderRadius, color as ssColor, space, textStyle
 } from 'styled-system';
 import { useToggle } from '../../hooks/useToggle';
-import { CheckBoxChecked, CheckboxUnchecked } from './checkbox-icon';
 import { CheckboxProps } from '../../theme/shared/checkboxes';
 import {
-  color, lineHeight, font, fontWeight, checkboxVariant, HiddenInput
+  checkboxVariant, HiddenInput, color
 } from '../../theme/shared';
-import {
-  fonts, fontWeights, fontSizes
-} from '../../theme/example-theme/text-styles';
-import { checkboxVariants } from '../../theme/example-theme/checkbox-styles';
 import { Icon } from '../icon';
+
+const uncheckedCss = css`
+  width: 24px;
+  height: 24px;
+  border-radius: 1px;
+  border: solid 1px ${color.medium};
+  &:hover {
+    border: solid 2px ${color.slate};
+  }
+`;
 
 const checkboxes = ssVariant({
   scale: 'checkboxes',
   variants: { primary: {} }
 });
-
-const defaultCheckboxProps = {
-  borderRadius: 2,
-  variant: checkboxVariant.transparent,
-  lineHeight: lineHeight[26],
-  fontFamily: fonts[font.font1],
-  fontWeight: fontWeights[fontWeight.bold],
-  fontSize: fontSizes[18]
-};
-
-const StyledControl = styled.div({
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  verticalAlign: 'top',
-  userSelect: 'none',
-  flexShrink: 0,
-});
-
-const StyledContainer = styled.label({
-  cursor: 'pointer',
-  display: 'inline-flex',
-  alignItems: 'center',
-  verticalAlign: 'top',
-  position: 'relative'
-});
+const CheckboxWrapper = styled.div`display: 'inline-flex';`;
+const StyledLabel = styled.label`cursor: 'pointer'; placeItems: 'center';`;
 
 export const CheckboxComponent = (props: CheckboxProps) => {
   const [on, toggle] = useToggle(true);
   return (
-    <StyledContainer>
+    <StyledLabel>
       <HiddenInput onClick={toggle} disabled={props.disabled} />
-      <StyledControl>
-        {on ? <Icon {...props} icon="check" /> : <CheckboxUnchecked {...props} />}
-      </StyledControl>
-    </StyledContainer>
+      <CheckboxWrapper>
+        {on ? <Icon {...props} icon="check" /> : <div css={uncheckedCss} />}
+      </CheckboxWrapper>
+    </StyledLabel>
   );
 };
 
 const StyledCheckboxComponent = styled(CheckboxComponent)<CheckboxProps>(
   {},
-  checkboxVariants,
+  checkboxes,
   borderRadius,
   ssColor,
   space,
   textStyle
 );
 
-StyledCheckboxComponent.defaultProps = defaultCheckboxProps;
+StyledCheckboxComponent.defaultProps = {
+  variant: checkboxVariant.transparent,
+  color: 'white'
+};
 
 export const Checkbox = StyledCheckboxComponent;

@@ -1,25 +1,24 @@
 import { color } from '../shared';
 
-export const checkboxVariants = {
-  outlined: {
-    border: '2px',
-    color: color.primary,
-    backgroundColor: color.primary,
-    borderStyle: 'solid',
-    borderColor: color.primary,
-    ':hover': {
-      color: color.secondary,
-      borderColor: color.secondary
-    },
-    ':disabled': {
-      color: color.grey,
-      borderColor: color.grey
-    }
+const base = {
+  border: '1px',
+  color: color.primary,
+  backgroundColor: color.primary,
+  borderStyle: 'solid',
+  borderColor: color.primary,
+  ':hover': {
+    color: color.secondary,
+    borderColor: color.secondary
   },
-  transparent: {
-    color: color.primary,
-    backgroundColor: color.white,
-    ':hover': { color: color.secondary, },
-    ':disabled': { color: color.grey, }
-  }
+  ':disabled': {
+    color: color.grey,
+    borderColor: color.grey
+  },
+  width: 24,
+  height: 24
+};
+
+export const checkboxVariants = {
+  outlined: { ...base },
+  transparent: { ...base }
 };
