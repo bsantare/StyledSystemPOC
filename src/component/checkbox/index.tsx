@@ -12,11 +12,7 @@ const StyledControl = styled.div({
   verticalAlign: 'top',
   userSelect: 'none',
   flexShrink: 0,
-  '&:disabled': {
-    opacity: 0.35,
-    borderRadius: '1px',
-    backgroundColor: color.grey
-  }
+  color: color.white,
 });
 
 const StyledContainer = styled.label({
