@@ -1,9 +1,33 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import {
+  variant as ssVariant, borderRadius, color as ssColor, space, textStyle
+} from 'styled-system';
 import { useToggle } from '../../hooks/useToggle';
 import { CheckBoxChecked, CheckboxUnchecked } from './checkbox-icon';
 import { CheckboxProps } from '../../theme/shared/checkboxes';
-import { color } from '../../theme/shared';
+import {
+  color, lineHeight, font, fontWeight, checkboxVariant, HiddenInput
+} from '../../theme/shared';
+import {
+  fonts, fontWeights, fontSizes
+} from '../../theme/example-theme/text-styles';
+import { checkboxVariants } from '../../theme/example-theme/checkbox-styles';
+import { Icon } from '../icon';
+
+const checkboxes = ssVariant({
+  scale: 'checkboxes',
+  variants: { primary: {} }
+});
+
+const defaultCheckboxProps = {
+  borderRadius: 2,
+  variant: checkboxVariant.transparent,
+  lineHeight: lineHeight[26],
+  fontFamily: fonts[font.font1],
+  fontWeight: fontWeights[fontWeight.bold],
+  fontSize: fontSizes[18]
+};
 
 const StyledControl = styled.div({
   display: 'inline-flex',
@@ -12,7 +36,6 @@ const StyledControl = styled.div({
   verticalAlign: 'top',
   userSelect: 'none',
   flexShrink: 0,
-  color: color.white,
 });
 
 const StyledContainer = styled.label({
@@ -23,30 +46,27 @@ const StyledContainer = styled.label({
   position: 'relative'
 });
 
-// Hide checkbox visually but remain accessible to screen readers.
-// Source: https://polished.js.org/docs/#hidevisually
-const HiddenInput = styled.input`
-  border: 0;
-  clip: rect(0 0 0 0);
-  clippath: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-`;
-
-export const Checkbox = (props: CheckboxProps) => {
+export const CheckboxComponent = (props: CheckboxProps) => {
   const [on, toggle] = useToggle(true);
   return (
     <StyledContainer>
-      {/* eslint-disable-next-line react/destructuring-assignment */}
       <HiddenInput onClick={toggle} disabled={props.disabled} />
       <StyledControl>
-        {on ? <CheckBoxChecked {...props} /> : <CheckboxUnchecked {...props} />}
+        {on ? <Icon {...props} icon="check" /> : <CheckboxUnchecked {...props} />}
       </StyledControl>
     </StyledContainer>
   );
 };
+
+const StyledCheckboxComponent = styled(CheckboxComponent)<CheckboxProps>(
+  {},
+  checkboxVariants,
+  borderRadius,
+  ssColor,
+  space,
+  textStyle
+);
+
+StyledCheckboxComponent.defaultProps = defaultCheckboxProps;
+
+export const Checkbox = StyledCheckboxComponent;

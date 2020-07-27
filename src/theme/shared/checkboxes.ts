@@ -1,4 +1,6 @@
 import * as React from 'react';
-import { Themeable } from './types';
+import { TextStyles } from './types';
 
-export type CheckboxProps = React.ComponentPropsWithRef<'svg'> & Themeable & React.ComponentPropsWithRef<'div'> & React.ComponentPropsWithRef<'input'>
+export type CheckboxProps = React.ComponentPropsWithRef<'svg'> &
+  React.ComponentPropsWithRef<'div'> &
+  React.ComponentPropsWithRef<'input'> & TextStyles & {size?: string}

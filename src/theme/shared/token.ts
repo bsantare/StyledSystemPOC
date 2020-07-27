@@ -125,3 +125,10 @@ export const icon = {
 };
 
 export type IconType = AsUnion<typeof icon | undefined>;
+
+export const checkboxVariant = {
+  transparent: 'transparent',
+  outlined: 'outlined',
+} as const;
+
+export type CheckboxVariant = AsUnion<typeof checkboxVariant>;
