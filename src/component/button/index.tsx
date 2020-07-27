@@ -1,14 +1,18 @@
+import css, { Theme, get } from '@styled-system/css';
+import { useTheme } from 'emotion-theming';
+import React, { ButtonHTMLAttributes } from 'react';
 import {
-  variant,
+  variant as ssVariant,
   buttonStyle,
   borderRadius,
   TextStyleProps,
-  color,
+  color as ssColor,
   space,
   textStyle
 } from 'styled-system';
-import { ButtonHTMLAttributes } from 'react';
+
 import styled from '@emotion/styled';
+import useHover from '../../hooks/use-hover';
 import {
   fonts, fontSizes, fontWeights
 } from '../../theme/example-theme/text-styles';
@@ -20,15 +24,28 @@ import {
   font,
   lineHeight,
   fontWeight,
+  IconType, ButtonSize,
 } from '../../theme/shared';
+import { Icon } from '../icon';
 
-const buttonSize = variant({
+const FlowContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const StyledIcon = styled(Icon)`
+  margin-right: 5px;
+`;
+
+const buttonSize = ssVariant({
   prop: 'size',
   scale: 'buttonSizes',
   variants: { [size.sm]: {}, },
 });
 
-const btnVariants = variant({
+const btnVariants = ssVariant({
   scale: 'buttons',
   variants: { primary: {}, },
 });
@@ -43,22 +60,68 @@ const defaultBtnProps = {
   fontSize: fontSizes[18]
 };
 
+export interface ButtonProps {
+  icon?: IconType;
+  size?: ButtonSize;
+}
+
 type DefaultBtnProps = {
     variant?: ButtonVariant;
     size?: Size;
 } & ButtonHTMLAttributes<unknown> & TextStyleProps;
 
-const ButtonComponent = styled('button')<DefaultBtnProps>(
+const ButtonComponent: React.FC<DefaultBtnProps & ButtonProps> = ({
+  icon, disabled, variant: btnVariant, size: btnSize, children, ...rest
+}) => {
+  const {
+    hovered, bind
+  } = useHover();
+  const theme = useTheme<Theme>();
+
+  // Extract the current variant's color from the theme
+  const buttonVariantProps = css(
+    get(theme, `buttons.${btnVariant}`)
+  )(theme);
+  const {
+    color, ':disabled': disabledProps, ':hover': hoverProps
+  } = buttonVariantProps;
+
+  // Extract the current variant's text style from the size
+  const { iconSize } = css(
+    get(theme, `buttonSizes.${btnSize}`)
+  )(theme);
+
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <button type="button" disabled={disabled} {...bind} {...rest}>
+      <FlowContent>
+        {icon && (
+        <StyledIcon
+          icon={icon}
+          size={iconSize?.toString()}
+          disabled={disabled}
+          color={color}
+          disabledColor={disabledProps?.color}
+          hovered={hovered}
+          hoverColor={hoverProps?.color}
+        />
+        )}
+        {children}
+      </FlowContent>
+    </button>
+  );
+};
+
+const StyledButtonComponent = styled(ButtonComponent)<DefaultBtnProps & ButtonProps>(
   {},
   buttonSize,
   btnVariants,
   buttonStyle,
   borderRadius,
-  color,
+  ssColor,
   space,
   textStyle
 );
+StyledButtonComponent.defaultProps = defaultBtnProps;
 
-ButtonComponent.defaultProps = defaultBtnProps;
-
-export const Button = ButtonComponent;
+export const Button = StyledButtonComponent;
