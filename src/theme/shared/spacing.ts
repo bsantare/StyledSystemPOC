@@ -5,7 +5,12 @@ export const radii: ObjectOrArray<CSS.BorderRadiusProperty<TLengthStyledSystem>>
   0: 0,
   2: 2,
   4: 4,
-  8: 8
+  8: 8,
+  10: 10,
+  20: 20,
+  30: 30,
+  50: 50,
+  100: 100
 } as const;
 
 export const space: ObjectOrArray<CSS.MarginProperty<number | string>> = {

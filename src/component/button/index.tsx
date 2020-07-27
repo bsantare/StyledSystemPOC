@@ -24,7 +24,8 @@ import {
   font,
   lineHeight,
   fontWeight,
-  IconType, ButtonSize,
+  IconType,
+  ButtonSize,
 } from '../../theme/shared';
 import { Icon } from '../icon';
 
@@ -35,8 +36,8 @@ const FlowContent = styled.div`
   justify-content: space-between;
 `;
 
-const StyledIcon = styled(Icon)`
-  margin-right: 5px;
+const StyledIcon = styled(Icon)<{buttonHasChildren: boolean}>`
+  margin-right: ${(props) => props.buttonHasChildren && '5px'};
 `;
 
 const buttonSize = ssVariant({
@@ -51,7 +52,6 @@ const btnVariants = ssVariant({
 });
 
 const defaultBtnProps = {
-  borderRadius: 2,
   variant: buttonVariant.filled,
   size: size.sm,
   lineHeight: lineHeight[26],
@@ -104,6 +104,7 @@ const ButtonComponent: React.FC<DefaultBtnProps & ButtonProps> = ({
           disabledColor={disabledProps?.color}
           hovered={hovered}
           hoverColor={hoverProps?.color}
+          buttonHasChildren={!!children}
         />
         )}
         {children}
@@ -120,7 +121,7 @@ const StyledButtonComponent = styled(ButtonComponent)<DefaultBtnProps & ButtonPr
   borderRadius,
   ssColor,
   space,
-  textStyle
+  textStyle,
 );
 StyledButtonComponent.defaultProps = defaultBtnProps;
 

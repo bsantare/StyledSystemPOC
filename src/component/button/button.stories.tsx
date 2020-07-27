@@ -1,7 +1,8 @@
 import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs';
-import { buttonVariant, size } from '../../theme/shared';
-import { IconType, icon } from '../../theme/shared/token';
+import {
+  buttonVariant, size, IconType, icon
+} from '../../theme/shared';
 import { Button as CButton } from './index';
 
 export default {
@@ -9,101 +10,105 @@ export default {
   component: CButton
 };
 
-export const Button = () => {
+const buildButtons = (iconName: IconType | undefined, hideText: boolean) => (
+  <div style={{
+    display: 'flex', flexDirection: 'column', alignItems: 'flex-start'
+  }}
+  >
+    <CButton
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.filled}
+      size={size.sm}
+      style={{ marginBottom: 10 }}
+      icon={iconName}
+    >
+      {!hideText && 'Small filled button'}
+    </CButton>
+
+    <CButton
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.filled}
+      size={size.md}
+      style={{ marginBottom: 10 }}
+      icon={iconName}
+    >
+      {!hideText && 'Medium filled button'}
+    </CButton>
+
+    <CButton
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.filled}
+      size={size.lg}
+      style={{ marginBottom: 10 }}
+      icon={iconName}
+    >
+      {!hideText && 'Large filled button'}
+    </CButton>
+
+    <CButton
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.filled}
+      size={size.lg}
+      textStyle="display4.font2"
+      style={{ marginBottom: 10 }}
+      icon={iconName}
+    >
+      {!hideText && 'Large filled button - override textStyle'}
+    </CButton>
+
+    <CButton
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.outlined}
+      size={size.sm}
+      style={{ marginBottom: 10 }}
+      icon={iconName}
+    >
+      {!hideText && 'Small outlined button'}
+    </CButton>
+
+    <CButton
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.outlined}
+      size={size.md}
+      style={{ marginBottom: 10 }}
+      icon={iconName}
+    >
+      {!hideText && 'Medium filled button'}
+    </CButton>
+
+    <CButton
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.outlined}
+      size={size.lg}
+      style={{ marginBottom: 10 }}
+      icon={iconName}
+    >
+      {!hideText && 'Large outlined button'}
+    </CButton>
+
+    <CButton
+      disabled={boolean('Disabled', false)}
+      variant={buttonVariant.outlined}
+      size={size.lg}
+      textStyle="display4.font2"
+      style={{ marginBottom: 10 }}
+      icon={iconName}
+    >
+      {!hideText && 'Large outlined button - override textStyle'}
+    </CButton>
+  </div>
+);
+
+export const Button = () => buildButtons(undefined, false);
+
+export const ButtonWithIcon = () => {
   const iconSelect = select(
     'Icon',
-    ['None'].concat(Object.keys(icon)),
-    'None',
+    Object.keys(icon),
+    'arrowUpDown',
   );
 
-  const iconName = iconSelect === 'None' ? undefined : iconSelect as IconType;
+  const hideText = boolean('Hide Text', false);
 
-  return (
-    <div style={{
-      display: 'flex', flexDirection: 'column', alignItems: 'flex-start'
-    }}
-    >
-      <CButton
-        disabled={boolean('Disabled', false)}
-        variant={buttonVariant.filled}
-        size={size.sm}
-        style={{ marginBottom: 10 }}
-        icon={iconName}
-      >
-        Small filled button
-      </CButton>
-
-      <CButton
-        disabled={boolean('Disabled', false)}
-        variant={buttonVariant.filled}
-        size={size.md}
-        style={{ marginBottom: 10 }}
-        icon={iconName}
-      >
-        Medium filled button
-      </CButton>
-
-      <CButton
-        disabled={boolean('Disabled', false)}
-        variant={buttonVariant.filled}
-        size={size.lg}
-        style={{ marginBottom: 10 }}
-        icon={iconName}
-      >
-        Large filled button
-      </CButton>
-
-      <CButton
-        disabled={boolean('Disabled', false)}
-        variant={buttonVariant.filled}
-        size={size.lg}
-        textStyle="display4.font2"
-        style={{ marginBottom: 10 }}
-        icon={iconName}
-      >
-        Large filled button - override textStyle
-      </CButton>
-
-      <CButton
-        disabled={boolean('Disabled', false)}
-        variant={buttonVariant.outlined}
-        size={size.sm}
-        style={{ marginBottom: 10 }}
-        icon={iconName}
-      >
-        Small outlined button
-      </CButton>
-
-      <CButton
-        disabled={boolean('Disabled', false)}
-        variant={buttonVariant.outlined}
-        size={size.md}
-        style={{ marginBottom: 10 }}
-        icon={iconName}
-      >
-        Medium filled button
-      </CButton>
-
-      <CButton
-        disabled={boolean('Disabled', false)}
-        variant={buttonVariant.outlined}
-        size={size.lg}
-        style={{ marginBottom: 10 }}
-        icon={iconName}
-      >
-        Large outlined button
-      </CButton>
-
-      <CButton
-        disabled={boolean('Disabled', false)}
-        variant={buttonVariant.outlined}
-        size={size.lg}
-        textStyle="display4.font2"
-        style={{ marginBottom: 10 }}
-        icon={iconName}
-      >
-        Large outlined button - override textStyle
-      </CButton>
-    </div>
-  );
+  return buildButtons(iconSelect as IconType, hideText);
 };

@@ -48,16 +48,19 @@ export const buttonVariants: ButtonVariants = {
 export const buttonSizes: ButtonSizes = {
   sm: {
     ...textStyles.label.font1,
+    borderRadius: '2',
     padding: '2px 4px',
     iconSize: '25px'
   },
   md: {
     ...textStyles.display1.font1,
+    borderRadius: '2',
     padding: '4px 8px',
     iconSize: '30px'
   },
   lg: {
     ...textStyles.display3.font1,
+    borderRadius: '2',
     padding: '8px 16px',
     iconSize: '35px'
   }
