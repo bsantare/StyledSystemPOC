@@ -2,7 +2,7 @@ import { AsUnion } from '../util.types';
 
 export const font = {
   font1: 'font1',
-  font2: 'font2',
+  font2: 'font2'
 } as const;
 
 export type Font = AsUnion<typeof font>;
@@ -10,7 +10,7 @@ export type Font = AsUnion<typeof font>;
 export const fontWeight = {
   regular: 'regular',
   medium: 'medium',
-  bold: 'bold',
+  bold: 'bold'
 } as const;
 
 export type FontWeight = AsUnion<typeof fontWeight>;
@@ -27,7 +27,7 @@ export const textScale = {
   body1: 'body1',
   body2: 'body2',
   label: 'label',
-  caption: 'caption',
+  caption: 'caption'
 } as const;
 
 export type TextScale = AsUnion<typeof textScale>;
@@ -35,7 +35,7 @@ export type TextScale = AsUnion<typeof textScale>;
 export const buttonVariant = {
   filled: 'filled',
   outlined: 'outlined',
-  secondary: 'secondary',
+  secondary: 'secondary'
 } as const;
 
 export type ButtonVariant = AsUnion<typeof buttonVariant>;
@@ -46,7 +46,7 @@ export const size = {
   md: 'md',
   lg: 'lg',
   xl: 'xl',
-  full: 'full',
+  full: 'full'
 } as const;
 
 export type Size = AsUnion<typeof size>;
@@ -56,18 +56,22 @@ export const color = {
   background: 'background',
   primary: 'primary',
   secondary: 'secondary',
+  turquoiseDark: '#2e5763',
+  turquoise: '#1ca69c',
   accent: 'accent',
   highlight: 'highlight',
   muted: 'muted',
-  slate: 'slate',
+  slate: 'slategrey',
   grey: 'grey',
   ash: 'ash',
   alabaster: 'alabaster',
   white: 'white',
-  ghost: 'ghost',
+  ghost: 'ghost'
 } as const;
 
 export type Color = AsUnion<typeof color>;
+
+export const colorGuard = (c?: string): c is Color => !!c && Object.typedKeys(color).includes(c as Color);
 
 export const icon = {
   arrowUpDown: 'arrowUpDown',
@@ -119,7 +123,14 @@ export const icon = {
   thumbUp: 'thumbUp',
   locked: 'locked',
   arrowDown: 'arrowDown',
-  search: 'search',
+  search: 'search'
 };
 
 export type IconType = AsUnion<typeof icon | undefined>;
+
+export const checkboxVariant = {
+  transparent: 'transparent',
+  outlined: 'outlined'
+} as const;
+
+export type CheckboxVariant = AsUnion<typeof checkboxVariant>;
