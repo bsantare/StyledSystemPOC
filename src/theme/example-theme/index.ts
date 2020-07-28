@@ -25,7 +25,6 @@ const colors: ObjectOrArray<CSS.ColorProperty> = {
   [color.alabaster]: '#f8f8f8',
   [color.white]: '#ffffff',
   [color.ghost]: '#f2f2f2',
-  [color.medium]: '#8c8c8c'
 };
 
 const sizes: ObjectOrArray<CSS.HeightProperty<{}> | CSS.WidthProperty<{}>,
